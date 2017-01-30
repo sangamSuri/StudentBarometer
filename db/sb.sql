@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.1.53-community
+-- Server version	5.5.19
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,6 +20,39 @@
 
 CREATE DATABASE IF NOT EXISTS sb;
 USE sb;
+
+--
+-- Definition of table `collist`
+--
+
+DROP TABLE IF EXISTS `collist`;
+CREATE TABLE `collist` (
+  `ColWebId` varchar(50) DEFAULT NULL,
+  `ColName` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `collist`
+--
+
+/*!40000 ALTER TABLE `collist` DISABLE KEYS */;
+INSERT INTO `collist` (`ColWebId`,`ColName`) VALUES 
+ ('www.apsce-blr.org','A P S College of Engineering'),
+ ('www.acharyainstitutes.ac.in','Acharya Institute of Technology'),
+ ('www.atria.edu','Atria Institute of Technology'),
+ ('B.N.M. Institute of Technology','B.N.M. Institute of Technology'),
+ ('www.bmsce.ac.in','B. M. Sreenivasaiah College of Engg.'),
+ ('www.bcet.ac.in','Bangalore College of Engineering and Technology'),
+ ('www.cmrit.com','C. M. R. Institute of Technology'),
+ ('www.dayanandasagar.edu','Dayananda Sagar College of Engg.'),
+ (' www.dbit.ac.in','Don Bosco Institute of Technology'),
+ ('www.epcet.net','East Point College of Engineering and Technology'),
+ ('www.ewit.edu','East West Institute of Technology'),
+ ('www.impactinstitutions.org','Impact College of Engineering & AppliedSciences'),
+ ('www.msrit.edu','M. S. Ramaiah Institute of Technology'),
+ ('www.rithassan.org','Rajeev Institute of Technology');
+/*!40000 ALTER TABLE `collist` ENABLE KEYS */;
+
 
 --
 -- Definition of table `feed`
@@ -44,6 +77,7 @@ CREATE TABLE `feed` (
 
 /*!40000 ALTER TABLE `feed` DISABLE KEYS */;
 INSERT INTO `feed` (`experince`,`faciliti`,`standrads`,`sports`,`unions`,`usn`,`date`,`comments`) VALUES 
+ (4,3,3,3,4,'1us12asd12121','2017-01-30',' good'),
  (2,2,2,2,2,'v1234','2017-01-29',' ssssss'),
  (5,5,4,4,2,'v12341','2017-01-29',' hhhhhhh');
 /*!40000 ALTER TABLE `feed` ENABLE KEYS */;
@@ -67,6 +101,7 @@ CREATE TABLE `student` (
 
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
 INSERT INTO `student` (`sname`,`usn`,`college`) VALUES 
+ ('Test1','1us12asd12121','Bangalore College of Engineering and Technology'),
  ('sdeep','v1234','kits'),
  ('sdeep1','v12341','kits'),
  ('Rajsahekar','vr1234','kits');
