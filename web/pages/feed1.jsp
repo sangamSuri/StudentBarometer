@@ -13,7 +13,7 @@ String f6=request.getParameter("f6");
 
 Class.forName("com.mysql.jdbc.Driver");
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SB","root","root");
-PreparedStatement st = con.prepareStatement("insert into feed (experince,faciliti,standrads,sports,unions,usn,date,comments) values(?,?,?,?,?,?,now(),?)");
+PreparedStatement st = con.prepareStatement("insert into feed (experince,faciliti,standrads,sports,unions,usn,date,comments,ColID) values(?,?,?,?,?,?,now(),?,?)");
 st.setString(1, f1);
 st.setString(2, f2);
 st.setString(3, f3);
@@ -23,14 +23,18 @@ st.setString(5, f5);
 st.setString(6, usn);
 
 st.setString(7, f6);
-boolean re=st.execute();
-if(re)
+st.setString(8, session.getAttribute("ColID").toString());
+int re=st.executeUpdate();
+if(re > 0)
        {
-out.println("sucess");
+    session.setAttribute("exists", "true");
+        
+response.sendRedirect("feed.jsp?mesg=Thank you");
 }
-else
-    out.println("fail");
-
+else{
+    session.setAttribute("exists", "false");
+ response.sendRedirect("feed.jsp?mesg=not success");
+}
 
   
 
